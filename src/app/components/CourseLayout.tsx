@@ -1,4 +1,3 @@
-import { Play, FileText, Clock } from "lucide-react";
 
 const courseModules = [
     {

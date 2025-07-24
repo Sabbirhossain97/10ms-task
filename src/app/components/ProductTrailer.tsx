@@ -1,9 +1,11 @@
 import {  Users, Clock, Video, FileText, BookOpen, Gift, Facebook, PhoneCall } from "lucide-react";
 
 function ProductTrailer() {
+
+
   return (
       <div className="bg-white border absolute lg:max-w-[400px] right-0 border-gray-300 text-foreground rounded-lg self-start">
-          <iframe className="p-2 h-[220px] w-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+          <iframe className="p-1 h-[220px] w-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
           <div className="flex gap-2 overflow-x-auto">
               {[1, 2, 3, 4, 5, 6].map((index) => (
                   <div key={index} className="flex-shrink-0 w-24 h-16 bg-gray-200 rounded overflow-hidden cursor-pointer hover:opacity-75 transition-opacity">
@@ -15,7 +17,7 @@ function ProductTrailer() {
                   </div>
               ))}
           </div>
-          <div className="p-4">
+          <div className="p-4 ">
               <div className="mb-6">
                   <div className="flex items-baseline gap-2 mb-2">
                       <span className="text-3xl font-bold">৳3850</span>

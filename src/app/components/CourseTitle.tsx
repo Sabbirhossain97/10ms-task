@@ -5,7 +5,7 @@ function CourseTitle() {
     return (
         <div className='min-h-[300px] flex flex-col items-center justify-center bg-right bg-cover bg-[url(https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg)]'>
             <div className='max-w-[1200px] relative flex mx-auto'>
-                <div className='lg:max-w-[calc(100%_-_448px)]'>
+                <div className='lg:max-w-[calc(100%_-_448px)] px-4'>
                     <h1 className="text-3xl text-white lg:text-4xl font-bold mb-4">
                         IELTS Course by Munzereen Shahid
                     </h1>
