@@ -1,93 +1,49 @@
-import React from 'react'
 import { Check } from "lucide-react";
+import { useContext } from 'react';
+import { CourseContext } from '@/context/courseContext';
 
-const courseFeatures = [
-    "IELTS Academic ও General Training নিয়ে আলোচনা",
-    "Reading, Writing, Listening ও Speaking এর Overview & Format",
-    "প্রতিটি প্রশ্নের ধরন-ভিত্তিক উত্তর করার স্ট্র্যাটেজি",
-    "ভিডিওর সাথে প্র্যাকটিসের সুযোগ"
-];
+interface CourseFeatures {
+    checklist: string[];
+    file_type: string;
+    file_url: string;
+    id: string;
+    title: string;
+    video_thumbnail: string;
+}
 
-const mockTestFeatures = [
-    "10 Reading & 10 Listening Mock Tests",
-    "Computer-delivered IELTS পরীক্ষার এক্সপেরিয়েন্স",
-    "উত্তর সাবমিট করার সাথে সাথেই রেজাল্ট",
-    "মেকোলা নম্বর, মেকোলা জানতে থেকে নক টেস্ট"
-];
+export default function CourseFeatures() {
+    const data = useContext(CourseContext);
+    const courseFeaturesData = data?.sections.find((item) => item.type == 'feature_explanations');
 
-function CourseFeatures() {
     return (
-        <div className='lg:max-w-[calc(100%_-_448px)] px-4'>
-            <h3 className="text-xl font-semibold mb-6">Course Exclusive Feature</h3>
-
+        <div className='px-4'>
+            <h3 className="text-xl font-semibold mb-6">{courseFeaturesData?.name}</h3>
             <div className="bg-white rounded-lg p-6 border border-gray-300 ">
                 <div className="flex flex-col gap-4">
-                    <div className='flex justify-between border-b border-gray-300 pb-4'>
-                        <div>
-                            <h4 className="font-medium mb-4 text-muted-foreground">ভিডিও লেকচার</h4>
-                            <div className="space-y-3">
-                                {courseFeatures.map((feature, index) => (
-                                    <div key={index} className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                        <span className="text-sm">{feature}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div>
-                            <div className="bg-gradient-to-br from-red-600 to-red-700 text-white p-6 rounded-lg text-center relative overflow-hidden">
-                                <div className="text-4xl font-bold mb-1">50+</div>
-                                <div className="font-semibold text-lg tracking-wide">VIDEO LECTURES</div>
-                                <div className="mt-4">
-                                    <img
-                                        src="/src/assets/instructor-munzereen.jpg"
-                                        alt="Instructor"
-                                        className="w-20 h-20 rounded-full mx-auto border-4 border-white/30 object-cover"
-                                    />
-                                </div>
-                                <div className="absolute top-4 right-4 text-white/20">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
+                    {courseFeaturesData?.values?.map((feature: CourseFeatures, index) => (
+                        <div key={index} className={`flex justify-between ${(index < courseFeaturesData?.values.length - 1) && 'border-b border-gray-300'}  pb-4`}>
+                            <div>
+                                <h4 className="font-medium mb-4 text-muted-foreground">{feature.title}</h4>
+                                <div className="space-y-3">
+                                    {feature?.checklist?.map((list: string, index) => (
+                                        <div key={index} className="flex items-start gap-3">
+                                            <Check className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                                            <span className="text-sm">{list}</span>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
+                            {feature.file_type === 'image' && <div>
+                                <img
+                                    src={feature.file_url}
+                                    alt="Instructor"
+                                    className="w-[220px] h-[220px] mx-auto border-4 border-white/30 object-cover"
+                                />
+                            </div>}
                         </div>
-                    </div>
-                    <div className="flex justify-between">
-                        <div>
-                            <h4 className="font-medium mb-4 text-muted-foreground">Reading ও Listening Mock Tests</h4>
-                            <div className="space-y-3">
-                                {mockTestFeatures.map((feature, index) => (
-                                    <div key={index} className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                        <span className="text-sm">{feature}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div>
-                            <div className="bg-gradient-to-br from-red-600 to-red-700 text-white p-6 rounded-lg text-center relative overflow-hidden">
-                                <div className="text-4xl font-bold mb-1">50+</div>
-                                <div className="font-semibold text-lg tracking-wide">VIDEO LECTURES</div>
-                                <div className="mt-4">
-                                    <img
-                                        src="/src/assets/instructor-munzereen.jpg"
-                                        alt="Instructor"
-                                        className="w-20 h-20 rounded-full mx-auto border-4 border-white/30 object-cover"
-                                    />
-                                </div>
-                                <div className="absolute top-4 right-4 text-white/20">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
     )
 }
-
-export default CourseFeatures
