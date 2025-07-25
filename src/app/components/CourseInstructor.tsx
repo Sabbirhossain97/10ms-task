@@ -14,8 +14,9 @@ interface Instructor {
 export default function CourseInstructor() {
     const data = useContext(CourseContext);
     const instructorData = data?.sections.find((item) => item.type == 'instructors');
+    console.log(instructorData)
     return (
-        <div className="mx-auto px-4 mt-12">
+        <div id={instructorData?.name} className="mx-auto px-4 mt-12">
             <h2 className="text-2xl font-bold mb-4">{instructorData?.name}</h2>
             <div className="bg-white flex flex-wrap rounded-lg p-6 border border-gray-300 ">
                 {instructorData?.values.map((instructor: Instructor, index) => (

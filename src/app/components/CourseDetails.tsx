@@ -15,7 +15,7 @@ export default function CourseDetails() {
     const courseDetailsData = data?.sections.find((item) => item.type == 'about');
 
     return (
-        <div className="bg-background py-12 px-4">
+        <div id={courseDetailsData?.name} className="bg-background py-12 px-4">
             <h3 className="text-xl font-semibold mb-6">{courseDetailsData?.name}</h3>
             <div className="border border-gray-300 p-4 rounded-lg">
                 <Accordion.Root type="single" collapsible className="w-full">

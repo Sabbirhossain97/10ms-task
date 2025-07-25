@@ -16,7 +16,7 @@ export default function CourseFeatures() {
     const courseFeaturesData = data?.sections.find((item) => item.type == 'feature_explanations');
 
     return (
-        <div className='px-4'>
+        <div id={courseFeaturesData?.name} className='px-4'>
             <h3 className="text-xl font-semibold mb-6">{courseFeaturesData?.name}</h3>
             <div className="bg-white rounded-lg p-6 border border-gray-300 ">
                 <div className="flex flex-col gap-4">

@@ -13,7 +13,7 @@ export default function CourseOutcome() {
     const data = useContext(CourseContext);
     const courseOutcomeData = data?.sections.find((item) => item.type == 'pointers');
     return (
-        <div className="bg-background py-12">
+        <div id={courseOutcomeData?.name} className="bg-background py-12">
             <div className="px-4">
                 <h2 className="text-2xl font-bold mb-8">{courseOutcomeData?.name}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 p-6 gap-6 border border-gray-300 rounded-md">

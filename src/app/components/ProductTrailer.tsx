@@ -29,8 +29,8 @@ function ProductTrailer() {
 
     return (
         <>
-            <div className={`${isVisible && 'hidden'} flex flex-col absolute right-0 z-[1000]`}>
-                <div className="bg-white border lg:max-w-[400px] border-gray-300 text-foreground rounded-lg self-start">
+            <div className={`hidden md:flex flex-col absolute right-0 z-[1000]`}>
+                <div className="bg-white border md:max-w-[350px] lg:max-w-[400px] border-gray-300 text-foreground rounded-lg self-start">
                     {currentMedia.type === 'video' && <iframe className="p-1 h-[220px] w-full" src={`https://www.youtube.com/embed/${currentMedia.resource}`}></iframe>}
                     {currentMedia.type === 'image' && <img className='h-[220px] w-full object-cover' src={currentMedia.resource} />}
                     <div className="flex gap-4 p-4 overflow-x-auto">

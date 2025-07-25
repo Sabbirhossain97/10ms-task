@@ -12,8 +12,8 @@ export default function CourseLayout() {
     const data = useContext(CourseContext);
     const courseLayoutData = data?.sections.find((item) => item.type == 'features');
     return (
-        <div className="bg-background py-12">
-            <div className="container mx-auto px-4">
+        <div id={courseLayoutData?.name} className="bg-background py-12">
+            <div className=" mx-auto px-4">
                 <h2 className="text-2xl font-bold mb-8">{courseLayoutData?.name}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 bg-[#111827] border rounded-md">
                     {courseLayoutData?.values?.map((course: CourseLayout, index) => {

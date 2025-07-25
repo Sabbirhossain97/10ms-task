@@ -9,7 +9,8 @@ import CourseFeatures from "./CourseFeatures";
 import CourseDetails from "./CourseDetails";
 import EnrollCard from "./EnrollCard";
 import { Data } from "@/interfaces/course";
-
+import ContentSlider from "./ContentSlider";
+import { Footer } from "./Footer";
 export default function CourseProviderWrapper({ data }: { data: Data }) {
     return (
         <CourseContext.Provider value={data}>
@@ -17,17 +18,17 @@ export default function CourseProviderWrapper({ data }: { data: Data }) {
                 <Header />
                 <CourseTitle />
                 <div className="max-w-[1200px] flex justify-between mx-auto pb-10">
-                    <div className="max-w-[calc(100%_-_448px)]">
+                    <div className="md:max-w-[calc(100%_-_350px)] lg:max-w-[calc(100%_-_448px)] w-full">
+                        <ContentSlider />
                         <CourseInstructor />
                         <CourseLayout />
                         <CourseOutcome />
                         <CourseFeatures />
                         <CourseDetails />
                     </div>
-                    <div className='sticky top-6 right-0 p-6 self-start w-full'>
-                        <EnrollCard />
-                    </div>
+                    <EnrollCard />
                 </div>
+                <Footer />
             </div>
         </CourseContext.Provider>
     );
