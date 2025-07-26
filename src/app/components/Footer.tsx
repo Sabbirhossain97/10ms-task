@@ -32,12 +32,12 @@ export const Footer = () => {
                             <h4 className="font-medium mb-4">Download Our Mobile App</h4>
                             <div className="flex flex-wrap gap-3">
                                 <img
-                                    src='/google.jpg'
+                                    src='/footer/google.jpg'
                                     alt='google'
                                     className="h-10 w-auto"
                                 />
                                 <img
-                                    src='/apple.jpg'
+                                    src='/footer/apple.jpg'
                                     alt='google'
                                     className="h-10 w-auto"
                                 />
@@ -83,11 +83,11 @@ export const Footer = () => {
                         </div>
 
                         <div className="flex gap-5 mt-6">
-                            <img src='/facebook.jpg' />
-                            <img src='/instagram.jpg' />
-                            <img src='/linkedin.jpg' />
-                            <img src='/youtube.jpg' />
-                            <img src='/tiktok.jpg' />
+                            <img src='/footer/facebook.jpg' />
+                            <img src='/footer/instagram.jpg' />
+                            <img src='/footer/linkedin.jpg' />
+                            <img src='/footer/youtube.jpg' />
+                            <img src='/footer/tiktok.jpg' />
                         </div>
                     </div>
                 </div>
