@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { Star} from "lucide-react";
+import { Star } from "lucide-react";
 import ProductTrailer from './ProductTrailer';
 import { CourseContext } from '@/context/courseContext';
 import { Medium } from '@/interfaces/course';
@@ -15,7 +15,7 @@ export default function CourseTitle() {
     });
 
     return (
-        <div id={data?.title} className='min-h-[300px] flex flex-col items-center justify-center bg-top md:bg-right bg-cover bg-[url(https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg)]'>
+        <div id={data?.title} className='min-h-[300px] flex flex-col items-center justify-center bg-top md:bg-right bg-cover bg-[url("https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg")]'>
             <div className='max-w-[1200px] relative flex flex-col mx-auto pb-8 md:py-10'>
                 <div className="relative md:hidden rounded-lg overflow-hidden p-2">
                     {currentMedia.type === 'video' && <iframe className="p-1 min-h-[400px] w-full" src={`https://www.youtube.com/embed/${currentMedia.resource}`}></iframe>}
