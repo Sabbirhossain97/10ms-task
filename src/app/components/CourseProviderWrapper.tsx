@@ -27,7 +27,7 @@ export default function CourseProviderWrapper() {
         fetchData();
     }, [language]);
 
-    if (!data) return <div className="p-4">Loading...</div>;
+    if (!data) return <div className="p-4 min-h-screen flex justify-center items-center font-bold text-xl">Loading...</div>;
 
     return (
         <CourseContext.Provider value={data}>
@@ -37,7 +37,7 @@ export default function CourseProviderWrapper() {
                 <div className="max-w-[1200px] relative flex justify-between mx-auto pb-10">
                     <div className="md:max-w-[calc(100%_-_350px)] lg:max-w-[calc(100%_-_448px)] w-full">
                         <ContentSlider />
-                        <EnrollCardSmall/>
+                        <EnrollCardSmall />
                         <CourseInstructor />
                         <CourseLayout />
                         <CourseOutcome />
