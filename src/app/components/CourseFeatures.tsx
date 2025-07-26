@@ -21,7 +21,7 @@ export default function CourseFeatures() {
             <div className="bg-white rounded-lg p-6 border border-gray-300 ">
                 <div className="flex flex-col gap-4">
                     {courseFeaturesData?.values?.map((feature: CourseFeatures, index) => (
-                        <div key={index} className={`flex justify-between ${(index < courseFeaturesData?.values.length - 1) && 'border-b border-gray-300'}  pb-4`}>
+                        <div key={index} className={`flex flex-col items-start gap-4 md:flex-row justify-between ${(index < courseFeaturesData?.values.length - 1) && 'border-b border-gray-300'}  pb-4`}>
                             <div>
                                 <h4 className="font-medium mb-4 text-muted-foreground">{feature.title}</h4>
                                 <div className="space-y-3">
@@ -33,11 +33,13 @@ export default function CourseFeatures() {
                                     ))}
                                 </div>
                             </div>
-                            {feature.file_type === 'image' && <div>
+                            {feature.file_type === 'image' && <div className="max-w-[350px]">
                                 <img
                                     src={feature.file_url}
                                     alt="Instructor"
-                                    className="w-[220px] h-[220px] mx-auto border-4 border-white/30 object-cover"
+                                    height="200"
+                                    width="250"
+                                    className="mx-auto border-4 border-white/30 object-cover"
                                 />
                             </div>}
                         </div>

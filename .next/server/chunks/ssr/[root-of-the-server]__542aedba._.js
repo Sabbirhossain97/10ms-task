@@ -1490,7 +1490,7 @@ function CourseFeatures() {
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex flex-col gap-4",
                     children: courseFeaturesData?.values?.map((feature, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: `flex justify-between ${index < courseFeaturesData?.values.length - 1 && 'border-b border-gray-300'}  pb-4`,
+                            className: `flex flex-col items-start gap-4 md:flex-row justify-between ${index < courseFeaturesData?.values.length - 1 && 'border-b border-gray-300'}  pb-4`,
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
@@ -1540,10 +1540,13 @@ function CourseFeatures() {
                                     columnNumber: 29
                                 }, this),
                                 feature.file_type === 'image' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "max-w-[350px]",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                         src: feature.file_url,
                                         alt: "Instructor",
-                                        className: "w-[220px] h-[220px] mx-auto border-4 border-white/30 object-cover"
+                                        height: "200",
+                                        width: "250",
+                                        className: "mx-auto border-4 border-white/30 object-cover"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/CourseFeatures.tsx",
                                         lineNumber: 37,
