@@ -122,6 +122,7 @@
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 rgba(0, 0, 0, 0);
       --tw-duration: initial;
+      --tw-ease: initial;
     }
 
     ::backdrop {
@@ -153,6 +154,7 @@
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 rgba(0, 0, 0, 0);
       --tw-duration: initial;
+      --tw-ease: initial;
     }
   }
 }
@@ -188,6 +190,7 @@
     --leading-relaxed: 1.625;
     --radius-md: .375rem;
     --radius-lg: .5rem;
+    --ease-in-out: cubic-bezier(.4, 0, .2, 1);
     --aspect-video: 16 / 9;
     --default-transition-duration: .15s;
     --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
@@ -784,6 +787,10 @@
     min-height: 100vh;
   }
 
+  .w-1\/2 {
+    width: 50%;
+  }
+
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
@@ -802,6 +809,10 @@
 
   .w-\[100px\] {
     width: 100px;
+  }
+
+  .w-\[calc\(100\%_-_20\)\] {
+    width: calc(100% - 20);
   }
 
   .w-auto {
@@ -824,6 +835,10 @@
     max-width: 1440px;
   }
 
+  .max-w-\[calc\(100\%_-_20px\)\] {
+    max-width: calc(100% - 20px);
+  }
+
   .flex-1 {
     flex: 1;
   }
@@ -844,6 +859,11 @@
 
   .translate-y-0 {
     --tw-translate-y: calc(var(--spacing) * 0);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+
+  .translate-y-full {
+    --tw-translate-y: 100%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 
@@ -889,10 +909,6 @@
 
   .justify-center {
     justify-content: center;
-  }
-
-  .justify-start {
-    justify-content: flex-start;
   }
 
   .gap-1 {
@@ -1193,6 +1209,14 @@
     padding-top: calc(var(--spacing) * 16);
   }
 
+  .pr-0 {
+    padding-right: calc(var(--spacing) * 0);
+  }
+
+  .pr-2 {
+    padding-right: calc(var(--spacing) * 2);
+  }
+
   .pr-4 {
     padding-right: calc(var(--spacing) * 4);
   }
@@ -1383,6 +1407,15 @@
     transition-duration: .3s;
   }
 
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+
+  .group-data-\[state\=open\]\:rotate-180:is(:where(.group)[data-state="open"] *) {
+    rotate: 180deg;
+  }
+
   .placeholder\:text-\[12px\]::placeholder {
     font-size: 12px;
   }
@@ -1412,6 +1445,10 @@
   .focus\:outline-none:focus {
     --tw-outline-style: none;
     outline-style: none;
+  }
+
+  .data-\[state\=open\]\:rotate-180[data-state="open"] {
+    rotate: 180deg;
   }
 
   @media (min-width: 40rem) {
@@ -1477,12 +1514,6 @@
   @media (min-width: 48rem) {
     .md\:flex-row {
       flex-direction: row;
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .md\:items-center {
-      align-items: center;
     }
   }
 
@@ -1715,6 +1746,11 @@ body {
 }
 
 @property --tw-duration {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-ease {
   syntax: "*";
   inherits: false
 }

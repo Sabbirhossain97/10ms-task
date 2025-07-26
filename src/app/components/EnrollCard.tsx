@@ -59,7 +59,7 @@ export default function EnrollCard() {
                     </div>
                 </div>
             </div>
-            <div className={`${isVisible ? 'block' : 'hidden'} shadow-[0_-4px_10px_rgba(0,0,0,0.1)] md:hidden bg-white fixed bottom-0 right-0 left-0  p-4`}>
+            <div className={`${isVisible ? 'translate-y-0' : 'translate-y-full'} transition duration-300 shadow-[0_-4px_10px_rgba(0,0,0,0.1)] md:hidden bg-white fixed bottom-0 right-0 left-0  p-4`}>
                 <div className="mb-0">
                     <div className="flex items-baseline gap-2 mb-2">
                         <span className="text-2xl font-bold">৳1000</span>

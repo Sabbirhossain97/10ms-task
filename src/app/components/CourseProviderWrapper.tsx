@@ -14,20 +14,27 @@ import ContentSlider from "./ContentSlider";
 import { Footer } from "./Footer";
 import { Data } from "@/interfaces/course";
 import EnrollCardSmall from "./EnrollCardSmall";
+import { useSearchParams } from "next/navigation";
 
-export default function CourseProviderWrapper() {
+export default function CourseProviderWrapper({ initialData }: { initialData: Data }) {
     const [language, setLanguage] = useState<'en' | 'bn'>('en');
-    const [data, setData] = useState<Data | null>(null);
+    const [data, setData] = useState<Data | null>(initialData);
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await getCourseData(language);
-            setData(result);
+            if (language === 'en') {
+                setData(initialData); 
+            } else {
+                try {
+                    const result = await getCourseData(language);
+                    setData(result);
+                } catch (err) {
+                    console.error("Failed to fetch language data:", err);
+                }
+            }
         };
         fetchData();
-    }, [language]);
-
-    if (!data) return <div className="p-4 min-h-screen flex justify-center items-center font-bold text-xl">Loading...</div>;
+    }, [language, initialData]);
 
     return (
         <CourseContext.Provider value={data}>

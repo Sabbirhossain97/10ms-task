@@ -16,7 +16,7 @@ export default function Header({ language, setLanguage }: Props) {
     return (
         <div>
             <header className="bg-white fixed z-[2000] left-0 right-0 border-b border-gray-300">
-                <nav className={`${openNavbar ? 'translate-y-0 top-16' : '-translate-y-full top-0'} xl:hidden transition duration-300 fixed flex flex-col border-t border-gray-300 gap-4 py-6 px-6 left-0 right-0 bg-white z-[1500]`}>
+                <nav className={`${openNavbar ? 'translate-y-0 top-16' : '-translate-y-full top-0'} border-b xl:hidden transition duration-300 fixed flex flex-col border-t border-gray-300 gap-4 py-6 px-6 left-0 right-0 bg-white z-[1500]`}>
                     <div className="flex items-center gap-1 hover:text-accent cursor-pointer">
                         <span>Class 6-12</span>
                         <ChevronDown className="w-4 h-4" />
@@ -48,8 +48,8 @@ export default function Header({ language, setLanguage }: Props) {
                 <div className="max-w-[1440px] mx-auto px-4 z-[2000] overflow-hidden">
                     <div className="flex items-center gap-8 justify-between h-16">
                         <div className="flex items-center gap-4 flex-1 w-full ">
-                            {!openNavbar && <span className="xl:hidden" onClick={() => setOpenNavbar(!openNavbar)}><Menu /></span>}
-                            {openNavbar && <span className="xl:hidden" onClick={() => setOpenNavbar(!openNavbar)}><X /></span>}
+                            {!openNavbar && <span className="xl:hidden cursor-pointer" onClick={() => setOpenNavbar(!openNavbar)}><Menu /></span>}
+                            {openNavbar && <span className="xl:hidden cursor-pointer" onClick={() => setOpenNavbar(!openNavbar)}><X /></span>}
                             <div className="flex items-center gap-2">
                                 <img src='/logo.svg' alt='logo' className="h-[100px] w-[100px] md:h-[120px] md:w-[120px]" />
                             </div>
