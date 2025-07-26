@@ -989,6 +989,10 @@
     background-color: var(--color-white);
   }
 
+  .bg-\[url\(\'\/banner\.jpeg\'\)\] {
+    background-image: url("/banner.jpeg");
+  }
+
   .bg-cover {
     background-size: cover;
   }
@@ -1412,10 +1416,6 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-.bg-banner {
-  background-image: url("https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg");
 }
 
 :root {
