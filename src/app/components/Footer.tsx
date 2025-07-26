@@ -24,12 +24,12 @@ export const Footer = () => {
             <div className="mx-auto px-4">
                 <div className="flex flex-col items-center md:items-start md:flex-row justify-between gap-8">
 
-                    <div className="space-y-6">
-                        <div className="flex items-center gap-2">
+                    <div className="flex flex-col items-center md:items-start space-y-6">
+                        <div className="gap-2">
                             <img src='/logo.svg' alt='logo' className="" width='120' height='120' />
                         </div>
                         <div>
-                            <h4 className="font-medium mb-4">Download Our Mobile App</h4>
+                            <h4 className="text-center md:text-start font-medium mb-4">Download Our Mobile App</h4>
                             <div className="flex flex-wrap gap-3">
                                 <img
                                     src='/footer/google.jpg'
