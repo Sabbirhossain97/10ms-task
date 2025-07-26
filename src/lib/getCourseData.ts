@@ -1,9 +1,8 @@
 import axios from "axios";
 
-export async function getCourseData() {
+export async function getCourseData(language: string) {
     try {
-        const response = await axios.get('https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course', {
-            params: { lang: 'en' },
+        const response = await axios.get(`https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course?lang=${language}`, {
             headers: {
                 'X-TENMS-SOURCE-PLATFORM': 'web',
             },

@@ -1,4 +1,6 @@
 'use client';
+import { useEffect, useState } from "react";
+import { getCourseData } from "@/lib/getCourseData";
 import { CourseContext } from "@/context/courseContext";
 import Header from "./Header";
 import CourseTitle from "./CourseTitle";
@@ -8,14 +10,28 @@ import CourseOutcome from "./CourseOutcome";
 import CourseFeatures from "./CourseFeatures";
 import CourseDetails from "./CourseDetails";
 import EnrollCard from "./EnrollCard";
-import { Data } from "@/interfaces/course";
 import ContentSlider from "./ContentSlider";
 import { Footer } from "./Footer";
-export default function CourseProviderWrapper({ data }: { data: Data }) {
+import { Data } from "@/interfaces/course";
+
+export default function CourseProviderWrapper() {
+    const [language, setLanguage] = useState<'en' | 'bn'>('en');
+    const [data, setData] = useState<Data | null>(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await getCourseData(language);
+            setData(result);
+        };
+        fetchData();
+    }, [language]);
+
+    if (!data) return <div className="p-4">Loading...</div>;
+
     return (
         <CourseContext.Provider value={data}>
             <div className="relative">
-                <Header />
+                <Header language={language} setLanguage={setLanguage} />
                 <CourseTitle />
                 <div className="max-w-[1200px] flex justify-between mx-auto pb-10">
                     <div className="md:max-w-[calc(100%_-_350px)] lg:max-w-[calc(100%_-_448px)] w-full">
