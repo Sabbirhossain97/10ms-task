@@ -1,35 +1,38 @@
-import React from 'react'
-import { Star, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useContext } from 'react';
+import { Star} from "lucide-react";
 import ProductTrailer from './ProductTrailer';
-import { useContext } from 'react';
 import { CourseContext } from '@/context/courseContext';
+import { Medium } from '@/interfaces/course';
 
 export default function CourseTitle() {
 
     const data = useContext(CourseContext);
+    const productData = data?.media
+    const initialMedia = productData?.[0]
+    const [currentMedia, setCurrentMedia] = useState({
+        type: initialMedia?.resource_type,
+        resource: initialMedia?.resource_value
+    });
 
     return (
-        <div id={data?.title} className='min-h-[300px] flex flex-col items-center justify-center bg-right bg-cover bg-[url(https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg)]'>
-            <div className='max-w-[1200px] relative flex flex-col mx-auto py-10'>
-                <div className="relative md:hidden aspect-video bg-gray-900 rounded-lg overflow-hidden">
-                    <img
-                        src="/lovable-uploads/64dc49c6-d73b-4886-9939-7f914dfec651.png"
-                        alt="Course Video Thumbnail"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="bg-white bg-opacity-90 rounded-full p-4 cursor-pointer hover:bg-opacity-100 transition-all">
-                            <Play className="w-8 h-8 text-gray-800 ml-1" fill="currentColor" />
-                        </div>
+        <div id={data?.title} className='min-h-[300px] flex flex-col items-center justify-center bg-top md:bg-right bg-cover bg-[url(https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg)]'>
+            <div className='max-w-[1200px] relative flex flex-col mx-auto pb-8 md:py-10'>
+                <div className="relative md:hidden rounded-lg overflow-hidden p-2">
+                    {currentMedia.type === 'video' && <iframe className="p-1 min-h-[400px] w-full" src={`https://www.youtube.com/embed/${currentMedia.resource}`}></iframe>}
+                    {currentMedia.type === 'image' && <img className='max-h-[400px] w-full object-cover' src={currentMedia.resource} />}
+                    <div className="flex flex-wrap gap-4 p-4 overflow-x-auto">
+                        {productData?.map((product: Medium, index) => (
+                            <div key={index} onClick={() => setCurrentMedia({ type: product.resource_type, resource: product.resource_value })} className="flex-shrink-0 w-[50px] h-[30px] bg-gray-200 rounded cursor-pointer">
+                                <img
+                                    src={product.resource_type === "image" ? product.resource_value : product.thumbnail_url}
+                                    alt={`Video thumbnail ${index}`}
+                                    className="w-full h-full object-cover pointer-events-none"
+                                />
+                            </div>
+                        ))}
                     </div>
-                    <button className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 text-white">
-                        <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 text-white">
-                        <ChevronRight className="w-5 h-5" />
-                    </button>
                 </div>
-                <div className='md:max-w-[calc(100%_-_350px)] lg:max-w-[calc(100%_-_448px)] px-4'>
+                <div className='md:max-w-[calc(100%_-_350px)] lg:max-w-[calc(100%_-_448px)] px-4 mt-6 md:mt-0'>
                     <h1 className="text-3xl text-white lg:text-4xl font-bold mb-4">
                         {data?.title}
                     </h1>
