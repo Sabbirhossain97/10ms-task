@@ -46,10 +46,10 @@ function ContentSlider() {
     const handleScroll = () => updateScrollState();
 
     return (
-        <div className="relative md:sticky top-0 self-start z-[1000] px-4">
+        <div className="hidden md:block sticky top-16 self-start z-[1000] px-4">
             <div className='relative pt-6 px-8 border-b border-gray-300 bg-white'>
                 <button
-                    className={`${scrollPosition === 0 ? 'opacity-20' : 'oapcity-100'} cursor-pointer absolute left-0 top-1/3 rounded-full p-[4px] bg-gray-500`}
+                    className={`${scrollPosition === 0 ? 'opacity-20' : 'oapcity-100'} cursor-pointer absolute left-0 top-1/3 rounded-full p-[4px] bg-[#7F7F7F]`}
                     onClick={scrollLeft}
                     tabIndex={0}
                     aria-disabled={false}
@@ -70,7 +70,7 @@ function ContentSlider() {
 
                 </div>
                 <button
-                    className={`${!atEnd ? 'opacity-100' : 'opacity-20'} cursor-pointer absolute right-0 top-1/3 rounded-full p-[4px] bg-gray-500`}
+                    className={`${!atEnd ? 'opacity-100' : 'opacity-20'} cursor-pointer absolute right-0 top-1/3 rounded-full p-[4px] bg-[#7F7F7F]`}
                     onClick={scrollRight}
                     tabIndex={0}
                     aria-disabled={false}

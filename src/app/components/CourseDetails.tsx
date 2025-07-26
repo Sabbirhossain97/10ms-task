@@ -22,7 +22,7 @@ export default function CourseDetails() {
                     {courseDetailsData?.values?.map((details: CourseDetails,index) => (
                         <Accordion.Item key={details.id} value={`item-${details.id}`} className={`${index < (courseDetailsData?.values?.length - 1) && 'border-b border-dashed border-gray-300'}`}>
                             <Accordion.Trigger className="flex w-full justify-between items-center py-4 font-medium">
-                                <span dangerouslySetInnerHTML={{ __html: details.title || "" }} />
+                                <span dangerouslySetInnerHTML={{ __html: details.title || "" }} className='text-start'/>
                                 <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 cursor-pointer" />
                             </Accordion.Trigger>
                             <Accordion.Content className="pb-4 pt-2 text-gray-600">

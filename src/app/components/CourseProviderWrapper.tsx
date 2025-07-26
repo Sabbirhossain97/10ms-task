@@ -13,6 +13,7 @@ import EnrollCard from "./EnrollCard";
 import ContentSlider from "./ContentSlider";
 import { Footer } from "./Footer";
 import { Data } from "@/interfaces/course";
+import EnrollCardSmall from "./EnrollCardSmall";
 
 export default function CourseProviderWrapper() {
     const [language, setLanguage] = useState<'en' | 'bn'>('en');
@@ -33,9 +34,10 @@ export default function CourseProviderWrapper() {
             <div className="relative">
                 <Header language={language} setLanguage={setLanguage} />
                 <CourseTitle />
-                <div className="max-w-[1200px] flex justify-between mx-auto pb-10">
+                <div className="max-w-[1200px] relative flex justify-between mx-auto pb-10">
                     <div className="md:max-w-[calc(100%_-_350px)] lg:max-w-[calc(100%_-_448px)] w-full">
                         <ContentSlider />
+                        <EnrollCardSmall/>
                         <CourseInstructor />
                         <CourseLayout />
                         <CourseOutcome />
